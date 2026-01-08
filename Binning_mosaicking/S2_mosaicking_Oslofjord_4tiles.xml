@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<graph id="Mosaic_sentinel_2">
+   <version>1.0</version>
+   <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>${input1}</file>
+        </parameters>
+    </node>
+    <node id="Read2">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>${input2}</file>
+        </parameters>
+    </node>
+       <node id="Read3">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>${input3}</file>
+        </parameters>
+    </node>
+    <node id="Read4">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>${input4}</file>
+        </parameters>
+    </node>
+    <node id="Mosaic">
+        <operator>Mosaic</operator>
+        <sources>
+            <sourceProducts.1 refid="Read"/>
+            <sourceProducts.2 refid="Read2"/>
+            <sourceProducts.3 refid="Read3"/>
+            <sourceProducts.4 refid="Read4"/>
+        </sources>
+    <parameters>
+        <variables>
+            <variable>
+                <name>pixel_classif_flags</name>
+                <expression>pixel_classif_flags</expression>
+            </variable>
+            <variable>
+                <name>c2rcc_flags</name>
+                <expression>c2rcc_flags</expression>
+            </variable>
+            <variable>
+                <name>quality_indicator</name>
+                <expression>quality_indicator</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B1</name>
+                <expression>rtoa_B1</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B2</name>
+                <expression>rtoa_B2</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B3</name>
+                <expression>rtoa_B3</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B4</name>
+                <expression>rtoa_B4</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B5</name>
+                <expression>rtoa_B5</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B6</name>
+                <expression>rtoa_B6</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B7</name>
+                <expression>rtoa_B7</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B8</name>
+                <expression>rtoa_B8</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B8A</name>
+                <expression>rtoa_B8A</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B9</name>
+                <expression>rtoa_B9</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B10</name>
+                <expression>rtoa_B10</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B11</name>
+                <expression>rtoa_B11</expression>
+            </variable>
+            <variable>
+                <name>rtoa_B12</name>
+                <expression>rtoa_B12</expression>
+            </variable>
+            <variable>
+                <name>conc_chl</name>
+                <expression>conc_chl</expression>
+            </variable>
+            <variable>
+                <name>conc_tsm</name>
+                <expression>conc_tsm</expression>
+            </variable>
+            <variable>
+                <name>kd489</name>
+                <expression>kd489</expression>
+            </variable>
+            <variable>
+                <name>kdmin</name>
+                <expression>kdmin</expression>
+            </variable>
+            <variable>
+                <name>kd_z90max</name>
+                <expression>kd_z90max</expression>
+            </variable>
+            <variable>
+                <name>NDWI_swir</name>
+                <expression>NDWI_swir</expression>
+            </variable>
+            <variable>
+                <name>OC3</name>
+                <expression>OC3</expression>
+            </variable>
+            <variable>
+                <name>tur_665</name>
+                <expression>tur_665</expression>
+            </variable>
+            <variable>
+                <name>tur_865</name>
+                <expression>tur_865</expression>
+            </variable>
+            <variable>
+                <name>unc_tsm</name>
+                <expression>unc_tsm</expression>
+            </variable>
+            <variable>
+                <name>unc_chl</name>
+                <expression>unc_chl</expression>
+            </variable>
+            <variable>
+                <name>unc_kd489</name>
+                <expression>unc_kd489</expression>
+            </variable>
+            <variable>
+                <name>unc_kdmin</name>
+                <expression>unc_kdmin</expression>
+            </variable>
+            <variable>
+                <name>unc_kd_z90max</name>
+                <expression>unc_kd_z90max</expression>
+            </variable>
+            <variable>
+                <name>lat</name>
+                <expression>lat</expression>
+            </variable>
+            <variable>
+                <name>lon</name>
+                <expression>lon</expression>
+            </variable>
+        </variables>
+        <conditions/>
+        <combine>OR</combine>
+        <crs>PROJCS["UTM Zone 32 / World Geodetic System 1984", 
+            GEOGCS["World Geodetic System 1984", 
+                DATUM["World Geodetic System 1984", 
+                SPHEROID["WGS 84", 6378137.0, 298.257223563, AUTHORITY["EPSG","7030"]], 
+                AUTHORITY["EPSG","6326"]], 
+                PRIMEM["Greenwich", 0.0, AUTHORITY["EPSG","8901"]], 
+                UNIT["degree", 0.017453292519943295], 
+                AXIS["Geodetic longitude", EAST], 
+                AXIS["Geodetic latitude", NORTH]], 
+            PROJECTION["Transverse_Mercator"], 
+            PARAMETER["central_meridian", 9.0], 
+            PARAMETER["latitude_of_origin", 0.0], 
+            PARAMETER["scale_factor", 0.9996], 
+            PARAMETER["false_easting", 500000.0], 
+            PARAMETER["false_northing", 0.0], 
+            UNIT["m", 1.0], 
+            AXIS["Easting", EAST], 
+            AXIS["Northing", NORTH]]</crs>
+            <orthorectify>false</orthorectify>
+            <elevationModelName>ASTER 1sec GDEM</elevationModelName>
+            <resampling>Nearest</resampling>
+            <westBound>9.000171833381515</westBound>
+            <northBound>60.43618740787075</northBound>
+            <eastBound>11.730575288468843</eastBound>
+            <southBound>58.502051393882574</southBound>
+            <pixelSizeX>60.0</pixelSizeX>
+            <pixelSizeY>60.0</pixelSizeY>
+    </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Mosaic"/>
+        </sources>
+        <parameters>
+            <file>${output}</file>
+            <formatName>NetCDF4-BEAM</formatName>
+        </parameters>
+    </node>
+</graph>
